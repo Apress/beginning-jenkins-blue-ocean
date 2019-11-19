@@ -31,6 +31,12 @@ pipeline {
         }
 
         stage('Publish to Artifactory') {
+          agent {
+            node {
+              label 'docker'
+            }
+
+          }
           steps {
             script {
               stage('Report & Publish') {
