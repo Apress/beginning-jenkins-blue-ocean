@@ -39,7 +39,7 @@ pipeline {
           }
           steps {
             script {
-              stage('Report & Publish') {
+              stage('Report & Publish 2') {
                 parallel {
                   stage('Report & Publish') {
                     agent {
