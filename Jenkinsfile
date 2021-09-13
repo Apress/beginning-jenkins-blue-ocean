@@ -11,7 +11,7 @@ pipeline {
       steps {
         sh '''cd Ch03/example-maven-project
 mvn -Dmaven.test.failure.ignore clean package'''
-        stash(name: 'build-test-artifacts', includes: '**/target/surefire-reports/TEST-*.xml,target/*.jar')
+        stash(name: 'build-test-artifacts', includes: '**/target/surefire-reports/TEST-*.xml,**/target/*.jar')
       }
     }
 
@@ -24,8 +24,8 @@ mvn -Dmaven.test.failure.ignore clean package'''
       }
       steps {
         unstash 'build-test-artifacts'
-        junit '**/Ch03/example-maven-project/target/surefire-reports/TEST-*.xml'
-        archiveArtifacts(artifacts: '**/Ch03/example-maven-project/target/surefire-reportstarget/*.jar', onlyIfSuccessful: true)
+        junit '**/target/surefire-reports/TEST-*.xml'
+        archiveArtifacts(artifacts: '**/target/surefire-reportstarget/*.jar', onlyIfSuccessful: true)
       }
     }
 
