@@ -44,7 +44,7 @@ mvn -Dmaven.test.failure.ignore clean package'''
 
 
 
-              def server = Artifactory.server 'Artifactory'
+              def server = Artifactory.server 'Artifactory12'
               def uploadSpec = """{
                 "files": [
                   {
