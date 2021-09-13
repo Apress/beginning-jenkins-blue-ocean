@@ -32,6 +32,12 @@ mvn -Dmaven.test.failure.ignore clean package'''
         }
 
         stage('Publish to Artifactory') {
+          agent {
+            node {
+              label 'docker'
+            }
+
+          }
           steps {
             script {
               unstash 'build-test-artifacts'
